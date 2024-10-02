@@ -3,3 +3,4 @@ chrome-headless-shell-win64.zip
 chromedriver-win64
 __pycache__
 chromedriver-win64.zip
+Dockerfile
