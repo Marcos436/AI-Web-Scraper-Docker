@@ -2,29 +2,18 @@
     "version": 2,
     "builds": [
       {
-        "src": "*.py",
+        "src": "main.py",
         "use": "@vercel/python",
-        "config": {
-          "maxLambdaSize": "15mb",
-          "runtime": "python3.9"
+        "config": { 
+          "runtime": "python3.9",
+          "maxLambdaSize": "15mb"
         }
       }
     ],
     "routes": [
-      {
-        "src": "(.*)",
-        "dest": "main.py"
-      }
+      { "src": "/(.*)", "dest": "main.py" }
     ],
-    "build": {
-      "env": {
-        "PIP_TARGET": ".pip_target"
-      }
-    },
-    "functions": {
-      "api/*.py": {
-        "memory": 1024,
-        "maxDuration": 10
-      }
+    "env": {
+      "PYTHONUNBUFFERED": "1"
     }
   }
