@@ -1,34 +1,22 @@
-sudo apt-get install -y wget gnupg
-sudo apt-get install -y google-chrome-stable
-
 #!/bin/bash
 
-# Update package list and install system dependencies
-sudo apt-get update && sudo apt-get install -y \
-    wget \
-    unzip \
-    curl \
-    xvfb \
-    libxi6 \
-    libgconf-2-4 \
-    default-jdk
+# Install minimal dependencies
+apt-get update && apt-get install -y wget unzip
 
-# Remove unused apt list
-sudo rm -rf /var/lib/apt/lists/*
-
-# Install Google Chrome
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub
+# Install Chromium browser (smaller than Chrome)
+apt-get install -y chromium-browser
 
 # Install ChromeDriver
-wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-testing-public/129.0.6668.89/linux64/chromedriver-linux64.zip
-sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
-rm /tmp/chromedriver.zip
+CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+unzip /tmp/chromedriver.zip -d /usr/local/bin/
+chmod +x /usr/local/bin/chromedriver
 
-# Ensure pip is installed and upgrade to the latest version
-python3 -m ensurepip --upgrade
+# Clean up
+apt-get clean
+rm -rf /var/lib/apt/lists/* /tmp/chromedriver.zip
 
-# Install Python dependencies from requirements.txt
+# Install Python dependencies
 pip install -r requirements.txt
 
-# Expose port 8501 and run the Streamlit app
 streamlit run main.py
