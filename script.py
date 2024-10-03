@@ -5,12 +5,11 @@ from bs4 import BeautifulSoup
 
 def scrape_website(website):
     print("launching chrome driver")
-    driver_path = '/usr/local/bin/chromedriver-linux64/chromedriver '
+    driver_path = '/usr/local/bin/chromedriver-linux64/chromedriver'
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    options.binary_location = '/usr/bin/google-chrome'
 
     driver = webdriver.Chrome(service = Service(driver_path), options=options)
 
