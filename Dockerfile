@@ -30,6 +30,8 @@ RUN apt-get update && apt-get install -y google-chrome-stable
 RUN wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-testing-public/129.0.6668.89/linux64/chromedriver-linux64.zip && \
     unzip /tmp/chromedriver.zip -d /usr/local/bin/ && \
     rm /tmp/chromedriver.zip
+    
+RUN chmod +x /usr/local/bin/chromedriver
 
 # Upgrade pip and install Python dependencies
 RUN pip install --upgrade pip
