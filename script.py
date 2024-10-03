@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def scrape_website(website):
     print("launching chrome driver")
-    driver_path = '/usr/local/bin/chromedriver'
+    driver_path = '/usr/local/bin/chromedriver-linux64/chromedriver '
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
