@@ -31,7 +31,7 @@ RUN wget -O /tmp/chromedriver.zip https://storage.googleapis.com/chrome-for-test
     unzip /tmp/chromedriver.zip -d /usr/local/bin/ && \
     rm /tmp/chromedriver.zip
     
-RUN chmod +x /usr/local/bin/chromedriver
+RUN chmod +x /usr/local/bin/chromedriver-linux64/chromedriver 
 
 # Upgrade pip and install Python dependencies
 RUN pip install --upgrade pip
