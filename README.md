@@ -1,5 +1,8 @@
 # AI Web Scraper using Langchain and GroqCloud (Llama3.1)
 
+## Demo
+![Screenshot 2024-10-03 125330](https://github.com/user-attachments/assets/c0a4d7b0-8051-4f36-9b77-c393b95dbeea)
+
 This project is an **AI-powered Web Scraper** that leverages **Langchain**, **GroqCloud**, and **Llama3.1** to scrape, parse, and analyze content from web pages. The project is made using **Streamlit** and containerized using **Docker** and deployed on **Vercel** for scalability and ease of access.
 
 ## Features
